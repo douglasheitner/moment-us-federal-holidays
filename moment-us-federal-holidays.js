@@ -75,10 +75,36 @@ switch (columbusDay.month()) {
 }
 
 // Veterans Day - November 11
-var veteransDay = moment('11/11/'+currentYear).format('L');
+var veteransDay = moment('11/11/'+currentYear).day();
+switch (veteransDay) {
+  case 0: //Sunday
+    veteransDay = moment('11/11/'+currentYear).day(1).format('L');
+    break;
+  case 6: //Saturday
+    veteransDay = moment('11/11/'+currentYear).day(5).format('L');
+    break;
+  default:
+    veteransDay = moment('11/11/'+currentYear);
+}
 
 // Thanksgiving Day - 4th Thursday in November
-var thanksgivingDay = moment('11/1/'+currentYear).day(29).format('L')
-
+var thanksgivingDay = moment('11/1/'+currentYear).day(4);
+switch (thanksgivingDay.month()) {
+  case 10: //September
+    thanksgivingDay = moment('11/1/'+currentYear).day(25).format('L');
+    break;
+  default:
+    thanksgivingDay = moment('11/1/'+currentYear).day(18).format('L');
+}
 // Christmas Day - December 25
-var christmasDay = moment('12/25/'+currentYear).format('L');
+var christmasDay = moment('12/25/'+currentYear).day();
+switch (christmasDay) {
+  case 0: //Sunday
+    christmasDay = moment('12/25/'+currentYear).day(1).format('L');
+    break;
+  case 6: //Saturday
+    christmasDay = moment('12/25/'+currentYear).day(5).format('L');
+    break;
+  default:
+    christmasDay = moment('12/25/'+currentYear);
+}
