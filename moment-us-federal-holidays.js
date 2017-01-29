@@ -51,7 +51,7 @@ switch (indepenceDay) {
     indepenceDay = moment('7/4/'+currentYear).day(5).format('L');
     break;
   default:
-    indepenceDay = moment('7/4/'+currentYear);
+    indepenceDay = moment('7/4/'+currentYear).format('L');
 }
 
 // Labor Day - First Monday in September
@@ -106,5 +106,5 @@ switch (christmasDay) {
     christmasDay = moment('12/25/'+currentYear).day(5).format('L');
     break;
   default:
-    christmasDay = moment('12/25/'+currentYear);
+    christmasDay = moment('12/25/'+currentYear).format('L');
 }
