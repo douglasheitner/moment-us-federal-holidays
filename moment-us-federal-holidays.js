@@ -1,6 +1,5 @@
 //Days:   Sunday-Saturday (0-6)
 //Months: January-December (0-11)
-//
 
 var currentYear = moment().year();
 
@@ -14,7 +13,7 @@ switch (newYears) {
     newYears = moment('1/1/'+currentYear).day(5).format('L');
     break;
   default:
-    newYears = moment('1/1/'+currentYear);
+    newYears = moment('1/1/'+currentYear).format('L');
 }
 
 // Martin Luther King, Jr. Day - Third Monday in January
@@ -39,7 +38,15 @@ switch (washingtonBirthday.month()) {
 }
 
 // Memorial Day - Last Monday in May
-var memorialDay = moment('5/31/'+currentYear).day(1).format('L');
+var memorialDay = moment('5/31/'+currentYear).day(1);
+switch (memorialDay.month()) {
+  case 5: //June
+    memorialDay = moment('5/31/'+currentYear).day(-6).format('L');
+    break;
+  default:
+    memorialDay = moment('5/31/'+currentYear).day(1).format('L');
+}
+
 
 // Independence Day - July 4
 var indepenceDay = moment('7/4/'+currentYear).day();
@@ -84,17 +91,17 @@ switch (veteransDay) {
     veteransDay = moment('11/11/'+currentYear).day(5).format('L');
     break;
   default:
-    veteransDay = moment('11/11/'+currentYear);
+    veteransDay = moment('11/11/'+currentYear).format('L');
 }
 
 // Thanksgiving Day - 4th Thursday in November
 var thanksgivingDay = moment('11/1/'+currentYear).day(4);
 switch (thanksgivingDay.month()) {
-  case 10: //September
-    thanksgivingDay = moment('11/1/'+currentYear).day(25).format('L');
+  case 9: //October
+    thanksgivingDay = moment('11/1/'+currentYear).day(32).format('L');
     break;
   default:
-    thanksgivingDay = moment('11/1/'+currentYear).day(18).format('L');
+    thanksgivingDay = moment('11/1/'+currentYear).day(25).format('L');
 }
 // Christmas Day - December 25
 var christmasDay = moment('12/25/'+currentYear).day();
