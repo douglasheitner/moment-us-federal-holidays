@@ -130,5 +130,5 @@ function isNationalHoliday(date){
       christmasDay
     ];
 
-  return holidays.includes(date);
+  return holidays.indexOf(date);
 }
